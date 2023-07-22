@@ -10,9 +10,17 @@ const Login = () => {
     return validator.isEmail(email);
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if(!validateEmail(email)) {
+      alert("Invalid email format");
+      return;
+    }
+  }
+
   
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
         Email:
         <input type="text" name="email" onChange={e => setEmail(e.target.value)} />
