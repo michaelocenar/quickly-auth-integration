@@ -8,6 +8,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [company, setCompany] = useState('');
 
   const validateEmail = (email) => {
     return validator.isEmail(email);
@@ -29,6 +30,20 @@ const Signup = () => {
     if (password.length < 6) {
       alert('Password must be at least 6 characters long');
       return;
+    }
+
+    try {
+      const response = await axios.post('https://api-dev.quicklyinc.com/auth/signup', {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password, 
+        company: {
+          name: company
+        }
+      });
+    } catch (error) {
+
     }
   }
 
