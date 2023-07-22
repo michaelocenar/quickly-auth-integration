@@ -8,7 +8,15 @@ const Login = () => {
 
   return (
     <form>
-      
+      <label>
+        Email:
+        <input type="text" name="email" onChange={e => setEmail(e.target.value)} />
+      </label>
+      <label>
+        Password:
+        <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
+      </label>
+      <input type="submit" value="Submit" />
     </form>
   );
 }
