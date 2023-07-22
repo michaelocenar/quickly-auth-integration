@@ -12,6 +12,15 @@ const Signup = () => {
     return validator.isEmail(email);
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!validateEmail(email)) {
+      alert('Invalid email format');
+      return;
+    }
+  }
+
   return (
     <form>
   
