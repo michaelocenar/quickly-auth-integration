@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import validator from "validator";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const validateEmail = (email) => {
+    return validator.isEmail(email);
+  }
 
+  
   return (
     <form>
       <label>
