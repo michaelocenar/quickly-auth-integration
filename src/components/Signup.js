@@ -42,8 +42,12 @@ const Signup = () => {
           name: company
         }
       });
+      // if POST request is successful, response will have user data and a JWT token
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      localStorage.setItem('token', response.data.jwtToken);
     } catch (error) {
-
+        console.error('An error has occurred during signup', error);
+        alert('Signup not successful');
     }
   }
 
