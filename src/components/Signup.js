@@ -7,7 +7,6 @@ const Signup = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [company, setCompany] = useState('');
 
   const validateEmail = (email) => {
@@ -19,11 +18,6 @@ const Signup = () => {
 
     if (!validateEmail(email)) {
       alert('Invalid email format');
-      return;
-    }
-
-    if (password !== passwordConfirm) {
-      alert('Passwords do not match');
       return;
     }
 
@@ -68,10 +62,6 @@ const Signup = () => {
       <label>
         Password:
         <input type="password" name="password" onChange={e => setPassword(e.target.value)} required/>
-      </label>
-      <label>
-        Confirm Password:
-        <input type="password" name="passwordConfirm" onChange={e => setPasswordConfirm(e.target.value)} required/>
       </label>
       <label>
         Company Name:
