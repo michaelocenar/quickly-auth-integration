@@ -6,7 +6,9 @@ const Signup = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const [emailConfirm, setEmailConfirm] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [company, setCompany] = useState('');
 
   const validateEmail = (email) => {
@@ -26,22 +28,29 @@ const Signup = () => {
       return;
     }
 
+    const user = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email,
+      "password": password,
+      "company": {
+        "name": company
+      }
+    };
+
+    console.log('Sending the following JSON object to the server:', user);
+
     try {
-      const response = await axios.post('https://api-dev.quicklyinc.com/auth/signup', {
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        password, 
-        company: {
-          name: company
-        }
-      });
+      const response = await axios.post('https://api-dev.quicklyinc.com/auth/signup', user);
       // if POST request is successful, response will have user data and a JWT token
       localStorage.setItem('user', JSON.stringify(response.data.user));
       localStorage.setItem('token', response.data.jwtToken);
     } catch (error) {
-        console.error('An error has occurred during signup', error);
-        alert('Signup not successful');
+      console.error('An error has occurred during signup', error);
+      if (error.response) {
+        console.log('Server Response', error.response.data);
+      }
+      alert('Signup not successful');
     }
   }
 
