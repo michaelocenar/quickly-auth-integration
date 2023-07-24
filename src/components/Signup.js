@@ -23,8 +23,18 @@ const Signup = () => {
       return;
     }
 
+    if (email !== emailConfirm) {
+      alert('Emails do not match');
+      return;
+    }
+
     if (password.length < 6) {
       alert('Password must be at least 6 characters long');
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      alert('Passwords do not match');
       return;
     }
 
@@ -69,8 +79,16 @@ const Signup = () => {
         <input type="text" name="email" onChange={e => setEmail(e.target.value)} required/>
       </label>
       <label>
+        Confirm Email:
+        <input type="text" name="email" onChange={e => setEmailConfirm(e.target.value)} required/>
+      </label>
+      <label>
         Password:
         <input type="password" name="password" onChange={e => setPassword(e.target.value)} required/>
+      </label>
+      <label>
+        Confirm Password:
+        <input type="password" name="password" onChange={e => setPasswordConfirm(e.target.value)} required/>
       </label>
       <label>
         Company Name:
