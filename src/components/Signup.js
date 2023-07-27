@@ -59,6 +59,7 @@ const Signup = () => {
       console.error('An error has occurred during signup', error);
       if (error.response) {
         console.log('Server Response', error.response.data);
+        console.log('Error response:', error.response);
       }
       alert('Signup not successful');
     }
