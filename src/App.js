@@ -12,10 +12,10 @@ const App = () => {
   return (
     <Router>
       <Container>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        {/* <nav className="navbar navbar-expand-lg navbar-light bg-dark">
           <span className="navbar-brand mb-0 h1 custom-title">Quickly</span>
-        </nav>
-        <div className="d-flex justify-content-center align-items-center custom-container">
+        </nav> */}
+        <div className="card  d-flex justify-content-center align-items-center custom-container">
           <div className="m-3">
             <Link to="/login" className="custom-button">
               <Button variant="outline-primary" size="lg">Login</Button>

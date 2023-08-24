@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.custom-title {
+  font-size: 5rem;
+  font-family: Georgia, serif;
+}
+
+.custom-container {
+  height: 80vh;
+}
+
+.custom-button {
+  font-family: Arial, sans-serif;
+}

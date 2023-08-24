@@ -20,8 +20,8 @@ const Login = () => {
     try {
       const response = await axios.post('https://api-dev.quicklyinc.com/auth/login', { email, password });
       // if POST request is successful, response will have user data and a JWT token
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      localStorage.setItem('token', response.data.jwtToken);
+      // localStorage.setItem('user', JSON.stringify(response.data.user));
+      // localStorage.setItem('token', response.data.jwtToken);
       alert("Login successful!");
     } catch (error) {
       console.error("An error has occurred during login", error);  
